@@ -1,5 +1,7 @@
 import React from "react";
 
+import MealItemForm from "./MealItemForm";
+
 import styles from "./MealItem.module.css";
 
 const MealItem = (props) => {
@@ -10,7 +12,9 @@ const MealItem = (props) => {
         <div className={styles.description}>{props.meal.description}</div>
         <div className={styles.price}>${props.meal.price.toFixed(2)}</div>
       </div>
-      <div></div>
+      <div>
+        <MealItemForm id={props.meal.id} />
+      </div>
     </li>
   );
 };
