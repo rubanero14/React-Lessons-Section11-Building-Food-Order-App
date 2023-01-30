@@ -1,6 +1,7 @@
 import React from "react";
 
 import Button from "../UI/Button/Button";
+import Modal from "../UI/Modal/Modal";
 
 import styles from "./Cart.module.css";
 
@@ -15,7 +16,7 @@ const Cart = (props) => {
   ].map((meal) => <li>{meal.name}</li>);
 
   return (
-    <div>
+    <Modal>
       <ul className={styles["cart-items"]}>{cartItems}</ul>
       <div className={styles.total}>
         <span>Total Amount</span>
@@ -25,7 +26,7 @@ const Cart = (props) => {
         <Button className={styles["button--alt"]}>Close</Button>
         <Button className={styles.button}>Order</Button>
       </div>
-    </div>
+    </Modal>
   );
 };
 
