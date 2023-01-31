@@ -5,9 +5,9 @@ import Button from "../UI/Button/Button";
 
 import styles from "./HeaderCartButton.module.css";
 
-const HeaderCartButton = () => {
+const HeaderCartButton = (props) => {
   return (
-    <Button className={styles.button}>
+    <Button className={styles.button} onClick={props.onClick}>
       <span className={styles.icon}>
         <CartIcon />
       </span>

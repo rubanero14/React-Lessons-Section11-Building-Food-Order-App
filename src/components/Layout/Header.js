@@ -11,7 +11,7 @@ const Header = (props) => {
     <Fragment>
       <header className={styles.header}>
         <h1>Quick Meals</h1>
-        <HeaderCartButton />
+        <HeaderCartButton onClick={props.toggleCartModalHandler} />
       </header>
       <div className={styles["main-image"]}>
         <img
