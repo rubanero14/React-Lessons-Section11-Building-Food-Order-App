@@ -17,6 +17,7 @@
     border-radius: 25px;
     font-weight: bold;
     margin-right: 15px;
+    text-decoration: none;
 }
 
 .button:last-child {
