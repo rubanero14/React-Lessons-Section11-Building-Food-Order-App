@@ -1,3 +1,9 @@
+.wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
 .button {
     cursor: pointer;
     font: inherit;
@@ -6,10 +12,18 @@
     color: white;
     padding: 0.75rem 3rem;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     border-radius: 25px;
     font-weight: bold;
+    margin-right: 15px;
+}
+
+.button:last-child {
+    margin-right: 0px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .button:hover,
@@ -24,10 +38,11 @@
 }
 
 .badge {
+    margin: -20px -60px auto auto;
     background-color: #d81e1e;
+    font-size: 12px;
     padding: 0.25rem 1rem;
-    border-radius: 25px;
-    margin-left: 1rem;
+    border-radius: 100px;
     font-weight: bold;
 }
 
@@ -59,5 +74,35 @@
 
     100% {
         transform: scale(1);
+    }
+}
+
+@media (width <= 778px) {
+    .button {
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+
+    .icon {
+        width: 1rem;
+        height: 1rem;
+        margin-right: 0.5rem;
+    }
+
+    .badge {
+        margin: -15px -20px auto auto;
+        padding: 0.2rem 0.5rem;
+    }
+}
+
+@media (width <= 400px) {
+    .button {
+        font-size: 12px;
+        padding: 2px 5px;
+    }
+
+    .badge {
+        margin: -10px -15px auto auto;
+        padding: 0.2rem 0.5rem;
     }
 }
