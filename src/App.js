@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Header from "./components/Layout/Header";
 import Meals from "./components/Meals/Meals";
 import Cart from "./components/Cart/Cart";
+import CartProvider from "./store/CartProvider";
 
 function App() {
   const [openCartModal, setOpenCartModal] = useState(false);
@@ -13,13 +14,13 @@ function App() {
   };
 
   return (
-    <React.Fragment>
+    <CartProvider>
       {openCartModal && <Cart onClose={toggleCartModalHandler} />}
       <Header toggleCartModalHandler={toggleCartModalHandler} />
       <main>
         <Meals />
       </main>
-    </React.Fragment>
+    </CartProvider>
   );
 }
 
