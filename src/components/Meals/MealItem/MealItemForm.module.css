@@ -18,3 +18,17 @@
     background-color: #053f15;
     border-color: #053f15;
 }
+
+@media (width >= 500px) and (width <= 778px) {
+   .form button {
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+}
+
+@media (width < 500px) {
+    .form button {
+        font-size: 13px;
+        padding: 5px 12px;
+    }
+}

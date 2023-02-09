@@ -1,4 +1,5 @@
-import React from "react";
+/* eslint-disable no-restricted-globals */
+import React, { useState, useEffect } from "react";
 
 import CartIcon from "../Cart/CartIcon";
 import Button from "../UI/Button/Button";
@@ -7,6 +8,23 @@ import SVG from "../UI/SVG/SVG";
 import styles from "./HeaderCartButton.module.css";
 
 const HeaderCartButton = (props) => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 500);
+
+  //choose the screen size
+  const handleResize = () => {
+    if (window.innerWidth < 720) {
+      setIsMobile(true);
+    } else {
+      setIsMobile(false);
+    }
+  };
+
+  // create an event listener
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+  }, [isMobile]);
+
+  const buttonText = (text) => (!isMobile ? text : "");
   return (
     <div className={styles.wrapper}>
       <Button
@@ -20,13 +38,15 @@ const HeaderCartButton = (props) => {
             viewBox="0 0 640 512"
           />
         </span>
-        Source Code
+        <span>{buttonText("Source Code")}</span>
       </Button>
       <Button className={styles.button} onClick={props.onClick}>
         <span className={styles.icon}>
           <CartIcon />
         </span>
-        <span class={styles.cartBtnText}>Your Cart</span>
+        <span className={!isMobile ? styles.cartBtnText : ""}>
+          {buttonText("Cart")}
+        </span>
         <span className={styles.badge}>3</span>
       </Button>
     </div>

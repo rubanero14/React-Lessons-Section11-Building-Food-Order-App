@@ -83,7 +83,7 @@
     }
 }
 
-@media (width >= 400px) and (width <= 778px) {
+@media (width >= 500px) and (width <= 778px) {
     .button {
         font-size: 12px;
         padding: 5px 10px;
@@ -100,17 +100,33 @@
         padding: 0.2rem 0.5rem;
         font-size: 13px;
     }
+
+    .cartBtnText {
+        margin-right: 0.5rem;
+    }
 }
 
-@media (width < 400px) {
+@media (width < 500px) {
+    a {
+        display: inline-block;
+    }
+
     .button {
         font-size: 5px;
-        padding: 2px 5px;
+        padding: 5px;
     }
 
     .badge {
-        margin: -10px -15px auto auto;
-        padding: 0.2rem 0.5rem;
-        font-size: 10px;
+        margin: -10px -13px auto auto;
+        font-size: 13px;
+        height: 20px;
+        width: 20px;
+    }
+
+    .icon {
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-right: 0px;
+        padding: 5px 3px 0px 3px;
     }
 }

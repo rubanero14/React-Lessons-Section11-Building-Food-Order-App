@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import Input from "../../UI/Input/Input";
 import Button from "../../UI/Button/Button";
@@ -6,6 +6,23 @@ import Button from "../../UI/Button/Button";
 import styles from "./MealItemForm.module.css";
 
 const MealItemForm = (props) => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 500);
+
+  //choose the screen size
+  const handleResize = () => {
+    if (window.innerWidth < 500) {
+      setIsMobile(true);
+    } else {
+      setIsMobile(false);
+    }
+  };
+
+  // create an event listener
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+  }, [isMobile]);
+
+  const buttonText = (text) => (!isMobile ? text : "+");
   return (
     <form className={styles.form}>
       <Input
@@ -19,7 +36,7 @@ const MealItemForm = (props) => {
           defaultValue: "1",
         }}
       />
-      <Button>+ Add</Button>
+      <Button>{buttonText("+ Add")}</Button>
     </form>
   );
 };
