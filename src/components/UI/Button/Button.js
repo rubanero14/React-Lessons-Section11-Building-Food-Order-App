@@ -1,11 +1,13 @@
 import { Fragment } from "react";
 
+import styles from "./Button.module.css";
+
 const Button = (props) => {
   return (
     <Fragment>
       {props.type !== "link" && (
         <button
-          className={props.className}
+          className={styles.button + " " + props.className}
           type={props.type && props.type !== "link" ? props.type : "button"}
           disabled={props.disabled}
           onClick={props.onClick}
@@ -15,7 +17,7 @@ const Button = (props) => {
       )}
       {props.type === "link" && (
         <a
-          className={props.className}
+          className={styles.button + " " + props.className}
           href={props.href}
           target="_blank"
           rel="noreferrer"
