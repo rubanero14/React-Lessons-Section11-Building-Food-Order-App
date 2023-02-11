@@ -1,6 +1,7 @@
 /* eslint-disable no-restricted-globals */
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
+import CartContext from "../../store/cart-context";
 import CartIcon from "../Cart/CartIcon";
 import Button from "../UI/Button/Button";
 import SVG from "../UI/SVG/SVG";
@@ -8,6 +9,12 @@ import SVG from "../UI/SVG/SVG";
 import styles from "./HeaderCartButton.module.css";
 
 const HeaderCartButton = (props) => {
+  const cartCtx = useContext(CartContext);
+
+  const numberOfCartItems = cartCtx.items.reduce((currentTotal, item) => {
+    return currentTotal + item.amount;
+  }, 0);
+
   const [isMobile, setIsMobile] = useState(window.innerWidth < 500);
 
   //choose the screen size
@@ -47,7 +54,7 @@ const HeaderCartButton = (props) => {
         <span className={!isMobile ? styles.cartBtnText : ""}>
           {buttonText("Cart")}
         </span>
-        <span className={styles.badge}>3</span>
+        <span className={styles.badge}>{numberOfCartItems}</span>
       </Button>
     </div>
   );
