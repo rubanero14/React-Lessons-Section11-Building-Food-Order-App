@@ -45,7 +45,8 @@
     font-weight: bold;
     height: 25px;
     width: 25px;
-    font-size: 16px
+    font-size: 13px;
+    padding: 3px;
 }
 
 .button:hover .badge,
@@ -97,7 +98,7 @@
 
     .badge {
         margin: -15px -20px auto auto;
-        padding: 0.2rem 0.5rem;
+        padding: 3px;
         font-size: 13px;
     }
 
@@ -118,7 +119,7 @@
 
     .badge {
         margin: -10px -13px auto auto;
-        font-size: 13px;
+        font-size: 10px;
         height: 20px;
         width: 20px;
     }
