@@ -3,7 +3,6 @@
     Similar to managing states and data in Mutations and Actions in VueX.
 */
 import { useReducer } from "react";
-import { act } from "react-dom/test-utils";
 
 import CartContext from "./cart-context";
 

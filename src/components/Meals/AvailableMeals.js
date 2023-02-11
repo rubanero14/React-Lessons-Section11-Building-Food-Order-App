@@ -9,32 +9,35 @@ const DUMMY_MEALS = [
   {
     id: "m1",
     name: "Banana Leaf Meal",
-    amount: 3,
-    price: 39.0,
+    description:
+      "A full spread of Banana Leaf Meal from southern parts of India",
+    price: 15.0,
   },
   {
     id: "m2",
-    name: "Sushi",
-    description: "Finest fish and veggies",
-    price: 22.99,
+    name: "Cow Milk Filtered Coffee",
+    description: "Finest filtered coffee from southern parts of India",
+    price: 4.5,
   },
   {
     id: "m3",
-    name: "Schnitzel",
-    description: "A german specialty!",
+    name: "Cow Milk Chai",
+    description: "Finest chai from Nothern parts of India",
     price: 16.5,
   },
   {
     id: "m4",
-    name: "Barbecue Burger",
-    description: "American, raw, meaty",
-    price: 12.99,
+    name: "Chicken 65",
+    description:
+      "Tasty and scruptuous fried chicken with selected choices of Indian spices",
+    price: 15.5,
   },
   {
     id: "m5",
-    name: "Green Bowl",
-    description: "Healthy...and green...",
-    price: 18.99,
+    name: "Palak Paneer",
+    description:
+      "Indian cottage cheese tossed into aromatic and spiced blend of spinaches",
+    price: 17.99,
   },
 ];
 

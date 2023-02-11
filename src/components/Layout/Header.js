@@ -10,7 +10,7 @@ const Header = (props) => {
   return (
     <Fragment>
       <header className={styles.header}>
-        <h1>Quick Meals</h1>
+        <h1>Banana Leaf Meals</h1>
         <HeaderCartButton
           className={styles.button}
           onClick={props.toggleCartModalHandler}
