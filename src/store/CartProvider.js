@@ -14,7 +14,7 @@ const defaultCartState = {
 
 // Store for managing cart data
 const cartReducer = (state, action) => {
-  switch (action) {
+  switch (action.type) {
     case "ADD":
       // adding and updating array with new data and returning a new array using .concat method, similar to .push(), it pushes data into an array, but not the existing one
       // but a new one, .concat takes action.item as arguement dispatched from component below

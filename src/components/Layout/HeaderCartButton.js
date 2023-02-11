@@ -32,6 +32,7 @@ const HeaderCartButton = (props) => {
   }, [isMobile]);
 
   const buttonText = (text) => (!isMobile ? text : "");
+
   return (
     <div className={styles.wrapper}>
       <Button
