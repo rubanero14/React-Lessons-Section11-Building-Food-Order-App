@@ -63,7 +63,7 @@ const MealItemForm = (props) => {
           defaultValue: "1",
         }}
       />
-      <Button type="submit">{buttonText("+ Add")}</Button>
+      <Button type="submit">{buttonText("+ Add to Cart")}</Button>
       {error && <p>Please ensure choose a valid value in betwen 1 to 5</p>}
     </form>
   );

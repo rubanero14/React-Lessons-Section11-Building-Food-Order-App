@@ -27,7 +27,7 @@ const cartReducer = (state, action) => {
       // returning a new state snapshot with updated values to default store snapshot
       return {
         items: updatedItems,
-        total: updatedTotalAmount,
+        totalAmount: updatedTotalAmount,
       };
     case "REMOVE":
       return;
