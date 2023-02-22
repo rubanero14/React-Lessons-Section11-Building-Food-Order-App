@@ -16,6 +16,10 @@ const defaultCartState = {
 const cartReducer = (state, action) => {
   switch (action.type) {
     case "ADD":
+      // new total amount is updated as below
+      const updatedTotalAmount =
+        state.totalAmount + action.item.price * action.item.amount;
+
       // Find if item added into cart already exist in the cart already, if matches, returns its index
       const existingCartItemIndex = state.items.findIndex(
         (item) => item.id === action.item.id
@@ -39,16 +43,12 @@ const cartReducer = (state, action) => {
         updatedItems[existingCartItemIndex] = updatedItem; // replacing the existing meal with new amount and count value if its exist
       } else {
         // If no existing item found in the cart or first time adding item into the cart
-        updatedItem = [...state.item]; // Deep copy current dispatched item into updated item array
+        updatedItem = { ...action.item }; // Deep copy current dispatched item into updated item object
 
         // adding and updating array with new data and returning a new array using .concat method, similar to .push(), it pushes data into an array, but not the existing one
         // but a new one, .concat takes action.item as arguement dispatched from component below
         updatedItems = state.items.concat(updatedItem);
       }
-
-      // new total amount is updated as below
-      const updatedTotalAmount =
-        state.totalAmount + action.item.price * action.item.amount;
 
       // returning a new state snapshot with updated values to default store snapshot
       return {
