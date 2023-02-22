@@ -14,11 +14,11 @@ const CartItem = (props) => {
         </div>
       </div>
       <div className={classes.actions}>
-        <Button onClick={props.onRemove} type="button">
-          −
-        </Button>
         <Button onClick={props.onAdd} type="button">
           +
+        </Button>
+        <Button onClick={props.onRemove} type="button">
+          −
         </Button>
       </div>
     </li>

@@ -16,9 +16,35 @@ const defaultCartState = {
 const cartReducer = (state, action) => {
   switch (action.type) {
     case "ADD":
-      // adding and updating array with new data and returning a new array using .concat method, similar to .push(), it pushes data into an array, but not the existing one
-      // but a new one, .concat takes action.item as arguement dispatched from component below
-      const updatedItems = state.items.concat(action.item);
+      // Find if item added into cart already exist in the cart already, if matches, returns its index
+      const existingCartItemIndex = state.items.findIndex(
+        (item) => item.id === action.item.id
+      );
+
+      // Access the cart for existing cart item if exist, else returns value null
+      const existingCartItem = state.items[existingCartItemIndex];
+
+      // Initializing 2 variables respectively related to adding into existing cart item data if already exist
+      let updatedItem;
+      let updatedItems;
+
+      if (existingCartItem) {
+        // assigning cart item object and new amount value into updatedItem object
+        updatedItem = {
+          ...existingCartItem, // deep copy of existing cart item if exist
+          amount: existingCartItem.amount + action.item.amount, // adding existing cart total amount with new item entry amount
+        };
+
+        updatedItems = [...state.items]; // Copying the existing items snapshot into updatedItems array
+        updatedItems[existingCartItemIndex] = updatedItem; // replacing the existing meal with new amount and count value if its exist
+      } else {
+        // If no existing item found in the cart or first time adding item into the cart
+        updatedItem = [...state.item]; // Deep copy current dispatched item into updated item array
+
+        // adding and updating array with new data and returning a new array using .concat method, similar to .push(), it pushes data into an array, but not the existing one
+        // but a new one, .concat takes action.item as arguement dispatched from component below
+        updatedItems = state.items.concat(updatedItem);
+      }
 
       // new total amount is updated as below
       const updatedTotalAmount =
