@@ -1,3 +1,4 @@
+import Button from "../UI/Button/Button";
 import classes from "./CartItem.module.css";
 
 const CartItem = (props) => {
@@ -13,8 +14,12 @@ const CartItem = (props) => {
         </div>
       </div>
       <div className={classes.actions}>
-        <button onClick={props.onRemove}>−</button>
-        <button onClick={props.onAdd}>+</button>
+        <Button onClick={props.onRemove} type="button">
+          −
+        </Button>
+        <Button onClick={props.onAdd} type="button">
+          +
+        </Button>
       </div>
     </li>
   );
