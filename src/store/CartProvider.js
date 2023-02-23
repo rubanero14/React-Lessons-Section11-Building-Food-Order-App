@@ -14,23 +14,26 @@ const defaultCartState = {
 
 // Store for managing cart data
 const cartReducer = (state, action) => {
+  // Initializing variables
+  let updatedItem;
+  let updatedItems;
+  let existingCartItemIndex;
+  let updatedTotalAmount;
+  let existingCartItem;
+
   switch (action.type) {
     case "ADD":
       // new total amount is updated as below
-      const updatedTotalAmount =
+      updatedTotalAmount =
         state.totalAmount + action.item.price * action.item.amount;
 
       // Find if item added into cart already exist in the cart already, if matches, returns its index
-      const existingCartItemIndex = state.items.findIndex(
+      existingCartItemIndex = state.items.findIndex(
         (item) => item.id === action.item.id
       );
 
       // Access the cart for existing cart item if exist, else returns value null
-      const existingCartItem = state.items[existingCartItemIndex];
-
-      // Initializing 2 variables respectively related to adding into existing cart item data if already exist
-      let updatedItem;
-      let updatedItems;
+      existingCartItem = state.items[existingCartItemIndex];
 
       if (existingCartItem) {
         // assigning cart item object and new amount value into updatedItem object
@@ -55,8 +58,35 @@ const cartReducer = (state, action) => {
         items: updatedItems,
         totalAmount: updatedTotalAmount,
       };
+
     case "REMOVE":
-      return;
+      existingCartItemIndex = state.items.findIndex(
+        (item) => item.id === action.id
+      );
+
+      existingCartItem = state.items[existingCartItemIndex];
+
+      updatedTotalAmount = state.totalAmount - existingCartItem.price;
+
+      if (existingCartItem.amount === 1) {
+        updatedItems = state.items.filter((item) => item.id !== action.id); // Filtering out existing cart item if its amount is less than 1
+      } else {
+        updatedItem = {
+          ...existingCartItem,
+          amount: existingCartItem.amount - 1, // Reducing amount of cart item by 1 for every function call
+        };
+
+        updatedItems = [...state.items];
+
+        updatedItems[existingCartItemIndex] = updatedItem; // Overriding existing value with new updated item object
+      }
+
+      // returning a new state snapshot with updated values to default store snapshot
+      return {
+        items: updatedItems,
+        totalAmount: updatedTotalAmount,
+      };
+
     default:
       return defaultCartState;
   }

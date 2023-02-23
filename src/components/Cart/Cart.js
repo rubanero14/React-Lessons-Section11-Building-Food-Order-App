@@ -16,10 +16,14 @@ const Cart = (props) => {
   const hasItems = cartCtx.items.length > 0;
 
   // remove item functionality to be passed down to cart item component
-  const cartItemRemoveHandler = (id) => {};
+  const cartItemRemoveHandler = (id) => {
+    cartCtx.removeItem(id); // calling remove item fn in the cart context store and passing the id of the items to be removeds
+  };
 
   // add item functionality to be passed down to cart item component
-  const cartItemAddHandler = (item) => {};
+  const cartItemAddHandler = (item) => {
+    cartCtx.addItems({ ...item, amount: 1 }); // calling add item logic in the cart context store and passing an object consists of items to be added and increase by 1
+  };
 
   // Assigning unique key and id based on items index as the unique identifier for rendering the list of items
   const cartItems = cartCtx.items.map((meal) => (
