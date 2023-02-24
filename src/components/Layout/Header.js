@@ -3,7 +3,6 @@ import { Fragment } from "react";
 
 import HeaderCartButton from "./HeaderCartButton";
 
-import HeaderImage from "../../assets/meals.jpg";
 import styles from "./Header.module.css";
 
 const Header = (props) => {
@@ -18,7 +17,7 @@ const Header = (props) => {
       </header>
       <div className={styles["main-image"]}>
         <img
-          src={HeaderImage}
+          src="https://raw.githubusercontent.com/rubanero14/Banana-Leaf-Meal-Order-App-React-Side-Project/main/meals.7c9b8f27f7f1469609e2.jpg"
           alt="Buffet of delicious meals spread on a table"
         />
       </div>
