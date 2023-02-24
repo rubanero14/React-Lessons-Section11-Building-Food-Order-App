@@ -48,6 +48,7 @@
     font-size: 13px;
     padding: 3px;
     box-shadow: 0px 1px 4px 0px rgb(255, 0, 0, 0.9);
+    margin-left: 1.5rem;
 }
 
 .button:hover .badge,
@@ -57,10 +58,6 @@
 
 .bump {
     animation: bump 300ms ease-out;
-}
-
-.cartBtnText {
-    margin-right: 1.5rem;
 }
 
 @keyframes bump {

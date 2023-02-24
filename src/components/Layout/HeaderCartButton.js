@@ -76,7 +76,9 @@ const HeaderCartButton = (props) => {
         <span className={!isMobile ? styles.cartBtnText : ""}>
           {buttonText("Cart")}
         </span>
-        <span className={btnClasses}>{numberOfCartItems}</span>
+        {items.length > 0 && (
+          <span className={btnClasses}>{numberOfCartItems}</span>
+        )}
       </Button>
     </div>
   );
