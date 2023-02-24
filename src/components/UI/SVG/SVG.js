@@ -7,6 +7,7 @@ const SVG = (props) => {
         xmlns="http://www.w3.org/2000/svg"
         viewBox={props.viewBox}
         fill="currentColor"
+        className={props.className}
       >
         <path d={props.d} />
       </svg>

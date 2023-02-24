@@ -22,7 +22,7 @@ const DUMMY_MEALS = [
   {
     id: "c1",
     name: "Cow Milk Chai",
-    description: "Finest chai from Nothern parts of India",
+    description: "Finest chai from northern parts of India",
     price: 16.5,
   },
   {

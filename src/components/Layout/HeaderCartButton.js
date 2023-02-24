@@ -11,11 +11,32 @@ import styles from "./HeaderCartButton.module.css";
 const HeaderCartButton = (props) => {
   const cartCtx = useContext(CartContext);
 
-  const numberOfCartItems = cartCtx.items.reduce((currentTotal, item) => {
+  const { items } = cartCtx; // pulling out items from cartCtx obj using obj destructuring assignment
+
+  const numberOfCartItems = items.reduce((currentTotal, item) => {
     return currentTotal + item.amount;
   }, 0);
 
   const [isMobile, setIsMobile] = useState(window.innerWidth < 500);
+
+  // Conditional cart button animation logic
+  const [badgeBumped, setBadgeBumped] = useState(false);
+  const btnClasses = `${styles.badge} ${badgeBumped ? styles.bump : ""}`;
+
+  useEffect(() => {
+    if (items.length === 0) {
+      return;
+    }
+
+    setBadgeBumped(true); // Adding a watcher to watch if items's value changes, then conditionally set value to true
+    const timer = setTimeout(() => setBadgeBumped(false), 300);
+
+    // Garbage collection for the timer above as useEffect is a side ffect prone React hook, its best practice to do garbage collection to avoid any side effects
+    return () => {
+      // return the garbage collection inside anonymous function which React understands as cleanup fn & to conclude the useEffect(), best practice to avoid side effects
+      clearTimeout(timer); // clearTimeout() is a native JS method to clear any timer variables and it takes timer variable as its args
+    };
+  }, [items]); // Injecting items obj as dependency to trigger useEffect in event the dependency changes value
 
   //choose the screen size
   const handleResize = () => {
@@ -55,7 +76,7 @@ const HeaderCartButton = (props) => {
         <span className={!isMobile ? styles.cartBtnText : ""}>
           {buttonText("Cart")}
         </span>
-        <span className={styles.badge}>{numberOfCartItems}</span>
+        <span className={btnClasses}>{numberOfCartItems}</span>
       </Button>
     </div>
   );
