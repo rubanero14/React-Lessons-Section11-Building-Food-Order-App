@@ -10,7 +10,7 @@ const DUMMY_MEALS = [
     id: "a1",
     name: "Banana Leaf Meal",
     description:
-      "A full spread of Banana Leaf Meal from southern parts of India",
+      "A hearty spread of Banana leaf meal from southern parts of India",
     price: 15.0,
   },
   {
@@ -29,7 +29,7 @@ const DUMMY_MEALS = [
     id: "d1",
     name: "Chicken 65",
     description:
-      "Tasty and scruptuous fried chicken with selected choices of Indian spices",
+      "Tasty and scrumptious fried chicken with selected choices of Indian spices",
     price: 15.5,
   },
   {
