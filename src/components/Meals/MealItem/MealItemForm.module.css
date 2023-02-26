@@ -1,39 +1,87 @@
 .form {
-    text-align: right;
+  text-align: right;
 }
 
 .form input {
-    box-shadow: inset 0px 1px 4px 0px rgb(0, 0, 0, 0.6);
-    text-align: center;
+  box-shadow: inset 0px 1px 4px 0px rgb(0, 0, 0, 0.6);
+  text-align: center;
 }
 
 .form button {
-    font: inherit;
-    cursor: pointer;
-    background-color: #075c1f;
-    border: 1px solid #075c1f;
-    color: white;
-    padding: 0.25rem 2rem;
-    border-radius: 20px;
-    font-weight: bold;
+  font: inherit;
+  cursor: pointer;
+  background-color: #075c1f;
+  border: 1px solid #075c1f;
+  color: white;
+  padding: 0.25rem 2rem;
+  border-radius: 20px;
+  font-weight: bold;
 }
 
 .form button:hover,
 .form button:active {
-    background-color: #053f15;
-    border-color: #053f15;
+  background-color: #053f15;
+  border-color: #053f15;
+}
+
+.form .icon {
+  width: 1.35rem;
+  height: 1.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form .addToCartForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form .addToCartForm input {
+  width: 3rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font: inherit;
+  padding: 0.5rem;
+  border-radius: 20px 0 0 20px;
+  width: 50px;
+}
+
+.form .addToCartForm button {
+  border-radius: 0 20px 20px 0;
+  padding: 0.5rem;
+  margin-left: -2px;
+  margin-bottom: 8px;
+  width: 50px;
+}
+
+.form .actions button:first-child {
+  border-radius: 20px 0 0 20px;
+  padding: 0.5rem;
+  margin-left: -2px;
+  margin-bottom: 8px;
+  width: 50px;
+}
+
+.form .actions button:last-child {
+  border-radius: 0 20px 20px 0;
+  padding: 0.5rem;
+  margin-left: -2px;
+  margin-bottom: 8px;
+  width: 50px;
 }
 
 @media (width >= 500px) and (width <= 778px) {
-   .form button {
-        font-size: 12px;
-        padding: 5px 10px;
-    }
+  .form button {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
 }
 
 @media (width < 500px) {
-    .form button {
-        font-size: 13px;
-        padding: 5px 12px;
-    }
+  .form button {
+    font-size: 13px;
+    padding: 5px 12px;
+  }
 }
