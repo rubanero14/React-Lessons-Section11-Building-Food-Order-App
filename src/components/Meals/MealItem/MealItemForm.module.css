@@ -51,10 +51,15 @@
 .form .addToCartForm button {
   border-radius: 0 20px 20px 0;
   padding: 0.5rem;
-  margin-left: -2px;
+  margin-left: 0px;
   margin-bottom: 8px;
   border: 1.5px solid #075c1f;
   width: 50px;
+}
+
+.form .addToCartForm button:hover {
+  border: 1.5px solid #075c1f;
+  background: #075c1f;
 }
 
 .form .actions button:first-child {
