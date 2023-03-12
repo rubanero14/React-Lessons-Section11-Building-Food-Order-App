@@ -11,20 +11,18 @@
   background-color: #075c1f;
   color: white;
   padding: 0.75rem 3rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   border-radius: 25px;
   font-weight: bold;
   margin-right: 15px;
   text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .button:last-child {
   margin-right: 0px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  position: relative;
 }
 
 .button:hover,
@@ -33,13 +31,17 @@
 }
 
 .icon {
-  width: 1.35rem;
-  height: 1.35rem;
+  display: flex;
+}
+
+.icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
   margin-right: 0.5rem;
 }
 
 .badge {
-  margin: -20px -50px auto auto;
+  position: absolute;
   background-color: #ed3232;
   border-radius: 50%;
   font-weight: bold;
@@ -48,7 +50,8 @@
   font-size: 13px;
   padding: 3px;
   box-shadow: 0px 1px 4px 0px rgb(255, 0, 0, 0.9);
-  margin-left: 1.5rem;
+  top: -5px;
+  right: -5px;
 }
 
 .button:hover .badge,
@@ -58,6 +61,10 @@
 
 .bump {
   animation: bump 300ms ease-out;
+}
+
+.cartBtnText {
+  display: block;
 }
 
 @keyframes bump {
@@ -83,49 +90,57 @@
 }
 
 @media (width >= 500px) and (width <= 778px) {
-  .button {
-    font-size: 12px;
-    padding: 5px 10px;
+  .cartBtnText {
+    display: none;
   }
 
-  .icon {
-    width: 1rem;
-    height: 1rem;
-    margin-right: 0.5rem;
+  .button {
+    font-size: 12px;
+    padding: 10px 12px;
+    border-radius: 50%;
+  }
+
+  .icon svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0px;
   }
 
   .badge {
-    margin: -15px -20px auto auto;
-    padding: 3px;
-    font-size: 13px;
-  }
-
-  .cartBtnText {
-    margin-right: 0.5rem;
+    top: -5px;
+    right: -6px;
+    height: 20px;
+    width: 20px;
+    font-size: 10px;
   }
 }
 
 @media (width < 500px) {
+  .cartBtnText {
+    display: none;
+  }
+
   a {
     display: inline-block;
   }
 
   .button {
-    font-size: 5px;
-    padding: 5px;
+    font-size: 12px;
+    padding: 10px 12px;
+    border-radius: 50%;
   }
 
   .badge {
-    margin: -10px -13px auto auto;
+    top: -5px;
+    right: -7px;
     font-size: 10px;
     height: 20px;
     width: 20px;
   }
 
-  .icon {
-    width: 1.5rem;
-    height: 1.5rem;
+  .icon svg {
+    width: 1rem;
+    height: 1rem;
     margin-right: 0px;
-    padding: 5px 3px 0px 3px;
   }
 }

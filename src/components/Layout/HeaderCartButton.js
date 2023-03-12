@@ -52,8 +52,6 @@ const HeaderCartButton = (props) => {
     window.addEventListener("resize", handleResize);
   }, [isMobile]);
 
-  const buttonText = (text) => (!isMobile ? text : "");
-
   return (
     <div className={styles.wrapper}>
       <Button
@@ -67,15 +65,13 @@ const HeaderCartButton = (props) => {
             viewBox="0 0 640 512"
           />
         </span>
-        <span>{buttonText("Source Code")}</span>
+        <span className={styles.cartBtnText}>Source Code</span>
       </Button>
       <Button className={styles.button} onClick={props.onClick}>
         <span className={styles.icon}>
           <CartIcon />
         </span>
-        <span className={!isMobile ? styles.cartBtnText : ""}>
-          {buttonText("Cart")}
-        </span>
+        <span className={styles.cartBtnText}>Cart</span>
         {items.length > 0 && (
           <span className={btnClasses}>{numberOfCartItems}</span>
         )}
